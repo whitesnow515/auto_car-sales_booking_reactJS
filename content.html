@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Car Insurance</title>
+
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+        <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.slim.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="./assets/js/candelar.js"></script>
+
+        <link
+            rel="stylesheet"
+            href="https://site-assets.fontawesome.com/releases/v6.4.2/css/all.css"
+        >
+
+        <link
+            rel="stylesheet"
+            href="https://site-assets.fontawesome.com/releases/v6.4.2/css/sharp-solid.css"
+        >
+
+        <link
+            rel="stylesheet"
+            href="https://site-assets.fontawesome.com/releases/v6.4.2/css/sharp-regular.css"
+        >
+
+        <link
+            rel="stylesheet"
+            href="https://site-assets.fontawesome.com/releases/v6.4.2/css/sharp-light.css"
+        >
+
+        <!-- Website Font -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Tajawal:wght@200;300;400;500;700;800;900&display=swap" rel="stylesheet">
+        <!-- Css Normalize -->
+        <link rel="stylesheet" href="./assets/css/normalize.css">
+        <link rel="stylesheet" href="./assets/style.css">
+        <script src="./assets/script.js"></script>
+
+        <script>
+        </script>
+    </head>
+    <body onload="onLoad()" style="padding-bottom: 50px;">
+        <section id="home" style="background-position: center ;background-repeat: no-repeat; background-size: cover;height: 886px;background-image:linear-gradient(0deg, rgba(0,0,0,0.15), rgba(0,0,0,0.15)), url('https://images01.nicepage.com/a1389d7bc73adea1e1c1fb7e/d2322952c821563c9989f1aa/pexels-photo-3136673.jpeg');">
+            <header class="fixed-top" style="z-index: 1020; background-color: black; flex: auto; justify-content: center;">
+                <div style="height: 100%; margin-right: auto; margin-left: auto; float: left; align-content: center;">
+                    <img src="./assets/images/logo.jpg" style="width: 100px; height: 60px; margin-left: 30px;" onclick="document.getElementById('home').scrollIntoView();"/>
+                </div>
+                <div style="height: 100%; margin-right: auto; margin-left: auto; justify-content: center; align-content: center;">
+                    <i class="fa fa-shop" style="margin: auto; color: #ffffff;  font-size: 24px; margin-right: 10px; margin-left: 40px;" onclick="document.getElementById('home').scrollIntoView();"></i>
+                    <a style="size: 30px; margin-right: 40px; " onclick="document.getElementById('home').scrollIntoView();">Home</a>
+                    <i class="fa fa-car" style="margin: auto; color: #ffffff; font-size: 24px;  margin-right: 10px;" onclick="document.getElementById('cars').scrollIntoView();"></i>
+                    <a style="size: 30px; margin-right: 40px; " onclick="document.getElementById('cars').scrollIntoView();">Store</a>
+                    <i class="fa fa-cart-shopping" style="margin: auto; color: #ffffff; font-size: 24px; margin-right: 10px;" onclick="document.getElementById('shopping').scrollIntoView();"></i>
+                    <a style="size: 30px; margin-right: 40px; " onclick="document.getElementById('shopping').scrollIntoView();">Test Drive</a>
+                    <div style="margin-right: auto; margin-left: auto; float: right; align-content: center;" onclick="logout()">
+                        <i class="fa fa-user" style="margin: auto; color: #ffffff;  font-size: 24px; margin-right: 10px; margin-left: 40px;"></i>
+                        <a style="size: 30px; margin-right: 40px; ">Log out</a>
+                    </div>
+                </div>
+            </header>
+            <section class="landing">
+                <div class="container">
+                    <p class="h1p">
+                        <br>
+                        <br>
+                        <div style="flex: auto; align-items: center; justify-content: center;">
+                            <h1 style="margin: auto; width: 500px; color: rgb(6, 68, 240); font-size: 8 0px; font-style: italic; text-align: center; margin-bottom: 50px;">AUTO FLEET HUB</h1><br>
+                            <div style="position: relative;">  
+                                <img style="rotate: 45deg; width: 80px; height: 80px; position: absolute;top: 50%;left: 50%; margin: -50px 0 0 -50px;" src="https://www.fast-beam.com/wp-content/uploads/2021/01/Arrow-orange.svg" onclick="document.getElementById('shopping').scrollIntoView();" alt="">
+                            </div>
+                        </div>
+                    </p>
+                </div>
+            </section>
+        </section>
+        <section style="text-align: center; margin-top: 70px;">
+            <div class="container">
+                <h2 class="h2h" style="text-transform: capitalize; font-size: 36px;">FROM SEARCH TO SEE, WE MAKE CAR BUYING SWEET</h2>
+            </div>
+        </section>
+        <section id="cars" style="margin-bottom: 150px;">
+            <div style="margin-left: 100px; margin-right: 100px;">
+                <section class="c-imgs">
+                    <img id="c-img" onclick="imgviewer(this.src)" src="./assets/images/car/Audi S3_1/1.jpeg" alt="Audi S3_1">
+                    <img id="c-img" onclick="imgviewer(this.src)" src="./assets/images/car/Audi S3_2/1.jpeg" alt="Audi S3_2">
+                    <img id="c-img" onclick="imgviewer(this.src)" src="./assets/images/car/BMW M5/1.jpeg" alt="BMW M5">
+                    <img id="c-img" onclick="imgviewer(this.src)" src="./assets/images/car/Volkswagen Touareg/1.jpeg" alt="Volkswagen Touareg">
+                </section>
+                <div class="img-viewer" id="img-viewer" style="z-index: 1030;">
+                    <img id="image">
+                    <i onclick="toggleFullScreen()" id="fs-button" class="fa-sharp fa-regular fa-expand-wide" style="font-size: 28px;"></i>
+                    <i onclick="ximage()" id="x-button" class="fa-sharp fa-regular fa-xmark" style="font-size: 28px;"></i>
+                </div>
+            </div>
+        </section>
+        <section style="text-align: center; margin-top: 20px; margin-bottom: 50px;">
+            <div class="container">
+                <h2 class="h2h" style="text-transform: capitalize; font-size: 36px;">Select your car and make a booking</h2>
+            </div>
+        </section>
+        <section class="c-select" id="shopping">
+            <div>
+                Make : <select id="make" onchange="onFilter(value, id)">
+                            <option value="all">All</option>
+                            <option value="Audi">Audi</option>
+                            <option value="BMW">BMW</option>
+                            <option value="VW">VW</option>
+                        </select>
+            </div>
+            <div>
+                Model : <select id="model" onchange="onFilter(value, id)">
+                    <option value="all">All</option>
+                            <option value="S3">S3</option>
+                            <option value="M5">M5</option>
+                            <option value="TOUREG">TOUREG</option>
+                        </select>
+            </div>
+            <div>
+                Price : <select id="price" onchange="onFilter(value, id)">
+                        <option value="all">All</option>
+                            <option value="£14,500">£14,500</option>
+                            <option value="£15,900">£15,900</option>
+                            <option value="£34,000">£34,000</option>
+                            <option value="£41,000">£41,000</option>
+                        </select>
+            </div>
+            <div>
+                Year : <select id="year" onchange="onFilter(value, id)">
+                    <option value="all">All</option>
+                            <option value="2015">2015</option>
+                            <option value="2018">2018</option>
+                            <option value="2020">2020</option>
+                        </select>
+            </div>
+            <div>
+                Mileage : <select id="mileage" onchange="onFilter(value, id)">
+                                <option value="all">All</option>
+                                <option value="120000">120000</option>
+                                <option value="98000">98000</option>
+                                <option value="58000">58000</option>
+                                <option value="35000">35000</option>
+                          </select>
+            </div>
+            <div>
+                Body type : <select id="body_type" onchange="onFilter(value, id)">
+                                <option value="all">All</option>
+                                <option value="Saloon">Saloon</option>
+                                <option value="SUV">SUV</option>
+                            </select>
+            </div>
+            <div>
+                Fuel type : <select id="fuel_type" onchange="onFilter(value, id)">
+                                <option value="all">All</option>
+                                <option value="Petrol">Petrol</option>
+                                <option value="Diesel">Diesel</option>
+                            </select>
+            </div>
+            <div>
+                Engine size :   <select id="engine_size" onchange="onFilter(value, id)">
+                                    <option value="all">All</option>
+                                    <option value="2.0 Litre">2.0 Litre</option>
+                                    <option value="4.4 Litre">4.4 Litre</option>
+                                    <option value="3 Litre">3 Litre</option>
+                                </select>
+            </div>
+            <div>
+                Gearbox  :  <select id="gearbox" onchange="onFilter(value, id)">
+                                <option value="all">All</option>
+                                <option value="Automatic">Automatic</option>
+                            </select>
+            </div>
+            <div>
+                Number of doors :  <select id="number_doors" onchange="onFilter(value, id)">
+                                        <option value="all">All</option>
+                                        <option value="3">3</option>
+                                        <option value="5">5</option>
+                                        <option value="7">7</option>
+                                    </select>
+            </div>
+            <div>
+                Colour : <select id="colour" onchange="onFilter(value, id)">
+                            <option value="all">All</option>
+                            <option value="Blue">Blue</option>
+                            <option value="White">White</option>
+                            <option value="Black">Black</option>
+                         </select>
+            </div>
+        </section>
+        <section style="margin-top: 150px; flex: auto;" class="c-box" id="filter_data">
+        </section>
+
+        <!-- Button to test drive -->
+        <div style="text-align: center;">
+            <input type="text" style="background-color: #8f8f8f; width: 620px;" class="css-3d-text" id="test_drive" value="Book Test Drive"/>
+        </div>
+        
+        <div class="alert alert-success" id="alert_check" style="width: 50%; display: none;">
+            <strong style="color: black;">Success!</strong> This alert box could indicate a successful or positive action.
+        </div>
+
+        <!-- Modal to verify email -->
+        <div class="modal fade" id="verify">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <!-- Modal Header -->
+                    <div class="modal-header">
+                        <h4 class="modal-title" style="color: black;">Verify Email</h4>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <!-- Modal body -->
+                    <div class="modal-body" style="color: black;">
+                        <!-- <input type="text" class="form-control" id="code" placeholder="Please enter code ..." /> -->
+                    </div> 
+                    <!-- Modal footer -->
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary" data-dismiss="modal" id="btn_confirm">Confirm</button>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+        <div id='wrap'>
+            <div id='calendar'></div>
+            <div style='clear:both'></div>
+        </div>
+        <script>
+            let c_name = '';
+            let bEvent;
+            function onLoad() {
+                onFilter('all', 'price');   
+                if (localStorage.getItem('token') == null) {
+                    window.location.href="index.html";
+                }                     
+            }
+
+            function logout() {
+                localStorage.removeItem("token");
+                window.location.href = "index.html";
+            }
+
+            function onFilter(value, id) {
+                let data = {id: id, value: value};
+                $.ajax({
+                    url: 'content.php', // Replace with your server endpoint
+                    type: 'GET', // or 'POST'
+                    data: data, // This is where you should pass the data object
+                    success: function(data) {
+                        // This function is called if the request succeeds
+                        let sData = JSON.parse(data);
+                        let len1 = (sData.length + 1)/2;
+                        let slider = '';
+                        for (let i = 0; i < len1 - 1; i++) {
+                            let value = sData[i];
+                            c_name += value.cname + ",";
+                            let path = "./assets/images/car/" + value.cname + "/";
+                            slider += "<div id='carouselExampleIndicators' class='carousel slide c-box1' data-ride='carousel' style='width: 90%; margin-left: 100px;'> " +
+                                    "<div class='carousel-inner justify-content-center' id='img_slider'>";
+                            slider += "<div class='carousel-item active'><img src='./assets/images/car/" + value.cname + "/1.jpeg' class='d-block w-100'></div>";
+                            let len = parseInt(sData[i + len1]);
+                            for (let i = 1; i < len; i++) {
+                                slider += "<div class='carousel-item'><img src='./assets/images/car/" + value.cname + "/" + (i+1).toString() + ".jpeg' class='d-block w-100'></div>";
+                            }
+                            slider += "</div>" +
+                                        "<button class='carousel-control-prev' type='button' data-target='#carouselExampleIndicators' data-slide='prev'>" +
+                                        "<span class='carousel-control-prev-icon' aria-hidden='true'></span> " +
+                                        "<span class='sr-only'>Previous</span>" +
+                                        "</button>" +
+                                        "<button class='carousel-control-next' type='button' data-target='#carouselExampleIndicators' data-slide='next'>" +
+                                        "<span class='carousel-control-next-icon' aria-hidden='true'></span>" +
+                                        "<span class='sr-only'>Next</span>" +
+                                        "</button>" +
+                                    "</div>" + 
+                                    "<div class='c-box2' style='margin-left: 100px; margin-right: 100px;'>" +
+                                        "<div>";
+                            slider += "<p style='font-size: 18px; margin-bottom: 5px;'' id='d_title'>" + value.cname + "</p>";
+                            slider += "<p style='font-size: 18px; margin-bottom: 5px;'' id='d_subtitle'>" + value.subname + "</p>";
+                            slider += "<p style='font-size: 18px; margin-bottom: 5px;'' id='d_description'>Description: - " + value.description + "</p>";
+                            slider += "<p style='font-size: 18px; margin-bottom: 5px;'' id='d_make'>Make: " + value.make + "</p>";
+                            slider += "<p style='font-size: 18px; margin-bottom: 5px;'' id='d_model'>Model: " + value.model + "</p>";
+                            slider += "<p style='font-size: 18px; margin-bottom: 5px;'' id='d_year'>Year: " + value.year + "</p>";
+                            slider += "<p style='font-size: 18px; margin-bottom: 5px;'' id='d_price'>Year: " + value.price + "</p>";
+                            slider += "<p style='font-size: 18px; margin-bottom: 5px;'' id='d_mileage'>Mileage: " + value.mileage + "</p>";
+                            slider += "<p style='font-size: 18px; margin-bottom: 5px;'' id='d_bodyType'>Body_type: " + value.body_type + "</p>";
+                            slider += "<p style='font-size: 18px; margin-bottom: 5px;'' id='d_engineSize'>Engine_size" + value.engine_size + "</p>";
+                            slider += "<p style='font-size: 18px; margin-bottom: 5px;'' id='d_gearbox'>Gearbox: " + value.gearbox + "</p>";
+                            slider += "<p style='font-size: 18px; margin-bottom: 5px;'' id='d_numberDoors'>Number of Doors: " + value.number_doors + "</p>";
+                            slider += "<p style='font-size: 18px; margin-bottom: 5px;'' id='d_colour'> Colour: " + value.colour + "</p>";
+                            slider += "</div></div>"
+                        }
+                        document.getElementById('filter_data').innerHTML = slider;
+                    },
+                    error: function(jqXHR, textStatus, errorThrown) {
+                        // This function is called if the request fails
+                        console.log(textStatus, errorThrown);
+                    }
+                });
+            }
+            $(document).ready(function() {
+                $("#btn_confirm").click(function() {
+                    $("#alert_check").fadeTo(2000, 500).slideUp(500, function() {
+                    $("#alert_check").slideUp(500);
+                    });
+                });
+
+                $("#test_drive").click(function() {
+                    // alert("asdf");
+                });
+            });
+            
+            $(document).ready(function() {
+                var date = new Date();
+                var d = date.getDate();
+                var m = date.getMonth();
+                var y = date.getFullYear();
+
+                
+                $.ajax({
+                    url: 'getBooking.php', // Replace with your server endpoint
+                    type: 'GET',  // This is where you should pass the data object
+                    success: function(data) {
+                        console.log(data);
+                        bEvent = JSON.parse(data);
+                        for (let i = 0; i < bEvent.length; i++) {
+                            calendar.fullCalendar('renderEvent',
+                                bEvent[i],
+                                true // make the event "stick"
+                            );
+                        }
+                    },
+                    error: function(jqXHR, textStatus, errorThrown) {
+                        // This function is called if the request fails
+                        console.log(textStatus, errorThrown);
+                    }
+                });
+                
+                /*  className colors
+                
+                className: default(transparent), important(red), chill(pink), success(green), info(blue)
+                
+                */		
+                
+                  
+                /* initialize the external events   
+                -----------------------------------------------------------------*/
+            
+                $('#external-events div.external-event').each(function() {
+                
+                    // create an Event Object (http://arshaw.com/fullcalendar/docs/event_data/Event_Object/)
+                    // it doesn't need to have a start or end
+                    var eventObject = {
+                        title: $.trim($(this).text()) // use the element's text as the event title
+                    };
+                    
+                    // store the Event Object in the DOM element so we can get to it later
+                    $(this).data('eventObject', eventObject);
+                    
+                    // make the event draggable using jQuery UI
+                    $(this).draggable({
+                        zIndex: 999,
+                        revert: true,      // will cause the event to go back to its
+                        revertDuration: 0  //  original position after the drag
+                    });
+                    
+                });
+            
+            
+                /* initialize the calendar
+                -----------------------------------------------------------------*/
+                
+                var calendar =  $('#calendar').fullCalendar({
+                    header: {
+                        left: 'title',
+                        center: 'agendaDay,agendaWeek,month',
+                        right: 'prev,next today'
+                    },
+                    editable: true,
+                    firstDay: 1, //  1(Monday) this can be changed to 0(Sunday) for the USA system
+                    selectable: true,
+                    defaultView: 'month',
+                    
+                    axisFormat: 'h:mm',
+                    columnFormat: {
+                        month: 'ddd',    // Mon
+                        week: 'ddd d', // Mon 7
+                        day: 'dddd M/d',  // Monday 9/7
+                        agendaDay: 'dddd d'
+                    },
+                    titleFormat: {
+                        month: 'MMMM yyyy', // September 2009
+                        week: "MMMM yyyy", // September 2009
+                        day: 'MMMM yyyy'                  // Tuesday, Sep 8, 2009
+                    },
+                    allDaySlot: false,
+                    selectHelper: true,
+                    /// candeler event data
+                    select: function(start, end, allDay) {
+                        var title = prompt('Please make a reservation');
+                        if (title) {
+                            const date = new Date(start);
+                            const year = date.getFullYear();
+                            const month = `0${date.getMonth() + 1}`.slice(-2); // Months are 0-indexed in JavaScript
+                            const day = `0${date.getDate()}`.slice(-2);
+
+                            const bookDate = `${year}-${month}-${day}`;
+                            console.log(bookDate); 
+                            const cDate = new Date();
+                            const cDate1 = cDate.toISOString().slice(0,10);
+                            console.log(cDate1); 
+                            if (bookDate < cDate1) {
+                                alert("The date has already passed. Please select a different date!");
+                                return;
+                            }
+                            $.ajax({
+                                url: 'storeBooking.php', // Replace with your server endpoint
+                                type: 'GET', // or 'POST'
+                                data: {
+                                    title: title,
+                                    start: start,
+                                    end: end,
+                                    allDay: '',
+                                    car: c_name
+                                }, // This is where you should pass the data object
+                                success: function(data) {
+                                    if (data == 'success') {
+                                        calendar.fullCalendar('renderEvent',
+                                            {
+                                                title: title,
+                                                start: start,
+                                                end: end,
+                                                allDay: allDay
+                                            },
+                                            true // make the event "stick"
+                                        );
+                                    }else{
+                                        alert("The reservation already exists. Please select a different date!");
+                                        return;
+                                    }
+                                },
+                                error: function(jqXHR, textStatus, errorThrown) {
+                                    // This function is called if the request fails
+                                    console.log(textStatus, errorThrown);
+                                }
+                            });
+                        
+                        }
+                        calendar.fullCalendar('unselect');
+                    },
+                    droppable: true, // this allows things to be dropped onto the calendar !!!
+                    drop: function(date, allDay) { // this function is called when something is dropped
+                    
+                        // retrieve the dropped element's stored Event Object
+                        var originalEventObject = $(this).data('eventObject');
+                        
+                        // we need to copy it, so that multiple events don't have a reference to the same object
+                        var copiedEventObject = $.extend({}, originalEventObject);
+                        
+                        // assign it the date that was reported
+                        copiedEventObject.start = date;
+                        copiedEventObject.allDay = allDay;
+                        
+                        // render the event on the calendar
+                        // the last `true` argument determines if the event "sticks" (http://arshaw.com/fullcalendar/docs/event_rendering/renderEvent/)
+                        $('#calendar').fullCalendar('renderEvent', copiedEventObject, true);
+                        
+                        // is the "remove after drop" checkbox checked?
+                        if ($('#drop-remove').is(':checked')) {
+                            // if so, remove the element from the "Draggable Events" list
+                            $(this).remove();
+                        }
+                        
+                    },
+                    
+                    events: [
+                    ],			
+                });
+            });
+        </script>
+    </body>
+</html>

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Login</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<!-- Favicon icon -->
+
+	<!-- vendor css -->
+	<link rel="stylesheet" href="./assets/css/style.css">
+</head>
+
+<body onload="onLoad()">
+	<div class="auth-wrapper">
+		<div class="auth-content text-center">
+			<div class="card borderless" style="opacity: 0.9;">
+				<div class="row align-items-center ">
+					<div class="col-md-12">
+						<div class="card-body">
+							<div style="flex: auto;">
+								<img src="./assets/images/logo.jpg" style="width: 120px; height: 80px; margin: auto;" />
+							</div>
+							<hr>
+							<form method="POST" action="" aria-label="">
+								<div class="form-group mb-3">
+									<input type="email" id="email" name="email" class="form-control rounded-left" placeholder="Email" required>
+								</div>
+								<div class="form-group mb-4">
+									<input type="password" class="form-control rounded-left" id="password" name="password" placeholder="Password" required>
+								</div>
+
+								<div class="custom-control custom-checkbox text-left mb-4 mt-2">
+									<input type="checkbox" class="custom-control-input" id="customCheck1">
+									<label class="custom-control-label" for="customCheck1">Save credentials.</label>
+								</div>
+								<input type="button" id="login" class="btn btn-block btn-primary mb-4" value="Signin" />
+							</form>
+							<hr>
+							<p class="mb-0 text-muted">Don’t have an account? <a onclick="window.location.href='signup.html'" class="f-w-400">Signup</a></p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script>
+
+		function onLoad() {
+			if (localStorage.getItem('token') != null) {
+				window.location.href="content.html";
+			}
+		}
+
+		document.getElementById('login').onclick = function() {
+				const email = document.getElementById("email").value.toLowerCase().trim();
+				const password = document.getElementById("password").value;
+		
+				if (email == "") {
+					alert("No email entered");
+				} else if (password == "") {
+					alert("No password entered");
+				} else {
+					sendLoginDetails(email, password);
+				}
+		}
+
+		function generateRandomString(length) {
+			var result = '';
+			var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+			var charactersLength = characters.length;
+			for (var i = 0; i < length; i++) {
+				result += characters.charAt(Math.floor(Math.random() * charactersLength));
+			}
+			return result;
+		}
+		
+		function sendLoginDetails(email, password) {
+			const xmlhttp = new XMLHttpRequest();
+			const url = "login.php?email=" + email + "&password=" + password;
+	
+			xmlhttp.onreadystatechange = function() {
+				if (this.readyState == 4 && this.status == 200) {
+				if (this.responseText.trim() != "") {
+					let response = this.responseText;
+					if (response == 'success') {
+						localStorage.setItem('token', generateRandomString(50));
+						window.location.href = "content.html";
+					}else{
+						alert(response);
+					}
+				}
+				}
+			};
+	
+			xmlhttp.open("GET", url, true);
+			xmlhttp.send();
+		}
+		// document.addEventListener("DOMContentLoaded", function() {
+				
+		// });
+
+	</script>
+</body>
+
+</html>

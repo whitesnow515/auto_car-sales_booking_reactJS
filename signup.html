@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>Register</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="description" content="" />
+	<meta name="keywords" content="">
+	<meta name="author" content="Phoenixcoded" />
+	<!-- Favicon icon -->
+	<link rel="icon" href="assets/images/favicon.ico" type="image/x-icon">
+	<!-- vendor css -->
+	<link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body onload="onLoad()">
+    <div class="auth-wrapper">
+        <div class="auth-content text-center">
+            <div class="card borderless">
+                <div class="row align-items-center text-center">
+                    <div class="col-md-12">
+                        <div class="card-body">
+							<div style="flex: auto;">
+								<img src="./assets/images/logo.jpg" style="width: 120px; height: 80px; margin: auto;" />
+							</div>
+                            <hr>
+                                <form method="POST" action="" aria-label="" >
+                                    <div class="form-group mb-3">
+                                        <input type="text" name="name" id="name" placeholder="Name" class="form-control" required autofocus>   
+                                    </div>
+                                    <div class="form-group mb-3">
+                                        <input type="email" id="email" name="email"class="form-control" placeholder="Email" required>
+                                    </div>
+                                    <div class="form-group mb-4">
+                                        <input type="password" class="form-control" id="password" name="password" placeholder="Password" required>
+                                    </div>
+                                    <div class="form-group mb-4">
+                                        <input id="password-confirm" type="password" class="form-control" name="password_confirmation" placeholder="Confirm Password" required>
+                                    </div>
+                                    <button id="register" class="btn btn-primary btn-block mb-4">Sign up</button>
+                                </form>
+                            <hr>
+                            <p class="mb-2">Already have an account? <a onclick="window.location.href='index.html'" class="f-w-400">Signin</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+
+		function onLoad() {
+			if (localStorage.getItem('token') != null) {
+				window.location.href="content.html";
+			}
+		}
+
+		document.getElementById('register').onclick = function() {
+				const name = document.getElementById("name").value;
+				const email = document.getElementById("email").value.toLowerCase().trim();
+				const password = document.getElementById("password").value;
+		
+				if (email == "") {
+					alert("No email entered");
+				} else if (password == "") {
+					alert("No password entered");
+				} else if(name == "") {
+					alert("No name entered");
+                } else {
+					sendRegisterDetails(email, password, name);
+				}
+		}
+		
+		function sendRegisterDetails(email, password, name) {
+			const xmlhttp = new XMLHttpRequest();
+			const url = "signup.php?email=" + email + "&password=" + password + "&name=" + name;
+	
+			xmlhttp.onreadystatechange = function() {
+				if (this.readyState == 4 && this.status == 200) {
+				if (this.responseText.trim() != "") {
+					let response = this.responseText;
+					if (response == 'success') {
+						window.location.href = "index.html";
+					}else{
+						alert(response);
+					}
+				}
+				}
+			};
+	
+			xmlhttp.open("GET", url, true);
+			xmlhttp.send();
+		}
+    </script>
+</body>
+
+</html>
